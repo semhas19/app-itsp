@@ -1,6 +1,6 @@
 @extends('layouts.content')
 
-@section('title', 'Edit Kategori Pohon')
+@section('title', 'Edit Data Pohon')
 
 @section('content')
 <div class="card">
@@ -69,16 +69,6 @@
                             <div class="alert alert-danger">
                                 {{ $message }}
                             @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="volume_pohon">Volume Pohon</label>
-                        <input type="text" class="form-control" name="volume_pohon" id="volume_pohon"
-                            value="{{ old('volume_pohon', $pohon->volume_pohon) }}" placeholder="Masukkan Volume Baru">
-                        @error('volume_pohon')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tgl_tanam">Tanggal Tanam</label>

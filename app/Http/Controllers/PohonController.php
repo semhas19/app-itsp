@@ -118,15 +118,20 @@ class PohonController extends Controller
             'tinggi_pohon'    => 'required',
             'keliling_pohon'  => 'required',
             'diameter_pohon'  => 'required',
-            'volume_pohon'    => 'required',
             'tgl_tanam'       => 'required|date',
             'kondisi'         => 'required|in: 1,2,3',
-            'note'            => 'required',
+            'note'            => 'nullable',
             'data'            => 'required',
             'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'lokasi_pohon_id' => 'required',
             'jenis_pohon_id'  => 'required'
         ]);
+
+        $jarijari = $validated['diameter_pohon'] * $validated['diameter_pohon'];
+
+        $hasil = $jarijari * $validated['tinggi_pohon'];
+
+        $validated['volume_pohon'] = (3.14 * $hasil) / 4;
 
         if ($request->hasFile('gambar')) {
             $imageName = time() . '.' . $request->gambar->extension();
