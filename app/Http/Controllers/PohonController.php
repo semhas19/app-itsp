@@ -50,11 +50,11 @@ class PohonController extends Controller
             'tinggi_pohon'    => 'required',
             'keliling_pohon'  => 'required',
             'diameter_pohon'  => 'required',
-            'tgl_tanam'       => 'required|date',
-            'kondisi'         => 'required|in: 1,2,3',
             'note'            => 'nullable',
             'lokasi_pohon_id' => 'required',
             'jenis_pohon_id'  => 'required',
+            'tgl_tanam'       => 'required|date',
+            'kondisi'         => 'required|in: 1,2,3',
             'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -65,9 +65,9 @@ class PohonController extends Controller
         $validated['volume_pohon'] = (3.14 * $hasil) / 4;
 
         if ($request->hasFile('gambar')) {
-            $imageName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('images'), $imageName);
-            $validated['gambar'] = $imageName;  // Simpan nama file gambar ke dalam $validated
+             // put image in the public storage
+            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('gambar'));
+            $validated['gambar'] = $filePath;
         }
 
         DB::transaction(function () use ($validated) {
@@ -118,13 +118,13 @@ class PohonController extends Controller
             'tinggi_pohon'    => 'required',
             'keliling_pohon'  => 'required',
             'diameter_pohon'  => 'required',
-            'tgl_tanam'       => 'required|date',
-            'kondisi'         => 'required|in: 1,2,3',
             'note'            => 'nullable',
             'data'            => 'required',
-            'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'lokasi_pohon_id' => 'required',
-            'jenis_pohon_id'  => 'required'
+            'jenis_pohon_id'  => 'required',
+            'tgl_tanam'       => 'required|date',
+            'kondisi'         => 'required|in: 1,2,3',
+            'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $jarijari = $validated['diameter_pohon'] * $validated['diameter_pohon'];
