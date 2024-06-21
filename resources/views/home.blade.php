@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <i class="fas fa-money-check-alt fa-2x text-primary"></i>
+                    <i class="fas fa-tree fa-2x text-success"></i>
                 </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <i class="fas fa-download fa-2x text-success"></i>
+                    <i class="fas fa-thumbs-up fa-2x text-primary"></i>
                 </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <i class="fas fa-upload fa-2x text-danger"></i>
+                    <i class="fas fa-thumbs-up fa-2x text-warning"></i>
                 </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <i class="fas fa-boxes fa-2x text-warning"></i>
+                    <i class="fas fa-thumbs-down fa-2x text-danger"></i>
                 </div>
                 </div>
             </div>

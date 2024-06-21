@@ -28,6 +28,6 @@
 
 <style>
     .bg-navbar {
-        background-color: #000080 !important
+        background-color: rgb(2, 150, 46) !important
     }
 </style>

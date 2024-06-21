@@ -4,15 +4,12 @@
     }
 
     .tulisan {
-        color: #000080 !important;
+        color: rgb(2, 150, 46); !important;
     }
 </style>
 
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center warna" href="index.html">
-        <div class="sidebar-brand-icon">
-            <i class="fas fa-fw fa-tree text-success"></i>
-        </div>
         <div class=" tulisan sidebar-brand-text mx-3 ">WEB-ITSP</div>
     </a>
     <hr class="sidebar-divider my-0">

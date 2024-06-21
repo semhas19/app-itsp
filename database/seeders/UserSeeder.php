@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'username'=>'superadmin',
-                'name'=>'AkunSuperAdmin',
+                'name'=>'Super Admin',
                 'email'=>'superadmin@mail.com',
                 'role'=>'superadmin',
                 'password'=> bcrypt('superadmin')
@@ -25,14 +25,14 @@ class UserSeeder extends Seeder
             
             [
                 'username'=>'admin',
-                'name'=>'AkunAdmin',
+                'name'=>'Admin',
                 'email'=>'admin@mail.com',
                 'role'=>'admin',
                 'password'=> bcrypt('admin')
             ],
             [
                 'username'=>'petugas',
-                'name'=>'AkunPetugas',
+                'name'=>'Petugas',
                 'email'=>'petugas@mail.com',
                 'role'=>'petugas',
                 'password'=> bcrypt('petugas')

@@ -35,7 +35,7 @@
                                 <div class="col-lg-12">
                                     <div class="login-form">
                                         <div class="text-center">
-                                            <img src="{{ asset('img/logo/logo.png') }}" class="logo">
+                                            <img src="{{ asset('img/logo/logo-itsp.png') }}" class="logo">
                                             <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                         </div>
                                         <form method="POST" action="{{ route('login') }}">
@@ -47,7 +47,7 @@
                                                         class="form-control @error('username') is-invalid @enderror"
                                                         name="username" value="{{ old('username') }}" required
                                                         autocomplete="username" autofocus
-                                                        placeholder="Masukkan Username Anda">
+                                                        placeholder="Username">
 
                                                     @error('username')
                                                         <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
                                                     <input id="password" type="password"
                                                         class="form-control @error('password') is-invalid @enderror"
                                                         name="password" required autocomplete="current-password"
-                                                        placeholder="Masukkan Password Anda">
+                                                        placeholder="Password">
 
                                                     @error('password')
                                                         <span class="invalid-feedback" role="alert">
@@ -84,15 +84,9 @@
 
                                             <div class="form-group">
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                    <button type="submit" class="btn btn-primary btn-block" style="color: #02962e; background-color: white; border-color: #02962e;">
                                                         {{ __('Login') }}
                                                     </button>
-
-                                                    @if (Route::has('password.request'))
-                                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                            {{ __('Forgot Your Password?') }}
-                                                        </a>
-                                                    @endif
                                                 </div>
                                             </div>
                                         </form>
