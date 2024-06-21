@@ -64,13 +64,10 @@ class PohonController extends Controller
 
         $validated['volume_pohon'] = (3.14 * $hasil) / 4;
 
-        if($request->hasfile('gambar'))
-        {
-            $file = $request->file('gambar');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('images/', $filename);
-            $validated['gambar'] = $filename;
+        if ($request->hasFile('gambar')) {
+             // put image in the public storage
+            $filePath = Storage::disk('public')->put('images/posts/gambar', request()->file('gambar'));
+            $validated['gambar'] = $filePath;
         }
 
         DB::transaction(function () use ($validated) {
