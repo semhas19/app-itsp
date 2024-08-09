@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
@@ -10,17 +9,17 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\LokasiPohon;
 use App\Models\JenisPohon;
-use App\Models\Pohon;
+use App\Models\Penebangan;
 
-class PohonController extends Controller
+class PenebanganController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pohons = Pohon::get();
-        return view('pohons.index', compact('pohons'));
+        $penebangans = Penebangan::get();
+        return view('penebangans.index', compact('penebangans'));
     }
 
     /**
@@ -32,7 +31,7 @@ class PohonController extends Controller
 
         $jenis_pohons = JenisPohon::all();
 
-        return view('pohons.create', compact('lokasi_pohons', 'jenis_pohons'));
+        return view('penebangans.create', compact('lokasi_pohons', 'jenis_pohons'));
     }
 
     /**
@@ -40,7 +39,9 @@ class PohonController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        return $request->all();
+
+        // dd($request->all());
 
         $validated = $request->validate([
             'nama_lokal'      => 'required',
@@ -52,8 +53,9 @@ class PohonController extends Controller
             'note'            => 'nullable',
             'lokasi_pohon_id' => 'required',
             'jenis_pohon_id'  => 'required',
-            'tgl_tanam'       => 'required|date',
-            'kondisi'         => 'required|in: 1,2,3'
+            'tgl_tebang'      => 'required|date',
+            'kondisi'         => 'required|in: 1,2,3',
+            // 'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $jarijari = $validated['diameter_pohon'] * $validated['diameter_pohon'];
@@ -63,45 +65,47 @@ class PohonController extends Controller
         $validated['volume_pohon'] = (3.14 * $hasil) / 4;
 
         DB::transaction(function () use ($validated) {
-            $pohon = Pohon::create($validated);
+            $penebangan = Penebangan::create($validated);
 
-            $validated['data'] = json_encode($pohon);
-            $pohon->update([
+            $validated['data'] = json_encode($penebangan);
+            $penebangan->update([
                 'data' => $validated['data'],
             ]);
         });
 
         Alert::success('Berhasil', 'Data Telah Ditambahkan.');
 
-        return redirect()->route('pohons.index');
+        return redirect()->route('penebangans.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Pohon $pohon)
+    public function show(Penebangan $penebangan)
     {
-        return view('pohons.show', compact('pohon'));
+        return view('penebangans.show', compact('penebangan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pohon $pohon)
+    public function edit(Penebangan $penebangan)
     {
         $lokasi_pohons = LokasiPohon::all();
 
         $jenis_pohons = JenisPohon::all();
 
-        return view('pohons.edit', compact('pohon', 'lokasi_pohons', 'jenis_pohons'));
+        return view('penebangans.edit', compact('penebangan', 'lokasi_pohons', 'jenis_pohons'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pohon $pohon)
+    public function update(Request $request, Penebangan $penebangan)
     {
         // return $request->all();
+
+        // dd($request->all());
 
         $validated = $request->validate([
             'nama_lokal'      => 'required',
@@ -114,9 +118,8 @@ class PohonController extends Controller
             'data'            => 'nullable',
             'lokasi_pohon_id' => 'required',
             'jenis_pohon_id'  => 'required',
-            'tgl_tanam'       => 'required|date',
-            'kondisi'         => 'required|in: 1,2,3',
-            'gambar'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'tgl_tebang'      => 'required|date',
+            'kondisi'         => 'required|in: 1,2,3'
         ]);
 
         $jarijari = $validated['diameter_pohon'] * $validated['diameter_pohon'];
@@ -125,44 +128,36 @@ class PohonController extends Controller
 
         $validated['volume_pohon'] = (3.14 * $hasil) / 4;
 
-        DB::transaction(function () use ($validated, $pohon) {
-            $pohon->update($validated);
+        DB::transaction(function () use ($validated, $penebangan) {
+            // Update data
+            $penebangan->update($validated);
+    
+            // Tambahkan kolom 'data' dengan data JSON dari objek yang diperbarui
+            $penebangan->update(['data' => json_encode($penebangan)]);
         });
 
+        
         Alert::success('Berhasil', 'Data Telah Diubah.');
 
-        return redirect()->route('pohons.index');
+        return redirect()->route('penebangans.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pohon $pohon)
+    public function destroy(Penebangan $penebangan)
     {
-        $pohon->delete();
+        $penebangan->delete();
 
         Alert::success('Berhasil', 'Data Telah Dihapus.');
 
-        return redirect()->route('pohons.index');
+        return redirect()->route('penebangans.index');
     }
 
-    public function qrcode($id)
+    public function penebanganprintpdf()
     {
-        $pohon = Pohon::find($id);
-        
-        $kondisi = $pohon->kondisi == '1' ? 'Baik' :
-              ($pohon->kondisi == '2' ? 'Rusak Ringan' : 'Rusak Berat');
-
-        $data = "Nama Lokal: $pohon->nama_lokal\nNama Ilmiah: $pohon->nama_ilmiah\nKondisi Pohon: $kondisi";
-        $qr = QrCode::size(120)->generate($data);
-        
-        return view('pohons.qrcode', compact('pohon', 'qr'));
-    }
-
-    public function pohonprintpdf()
-    {
-        $print = Pohon::all();
-        $pdf = PDF::loadview('pohons.printpdf', ['pohon' => $print])->setPaper('a4', 'landscape');
-        return $pdf->stream('pohontest.pdf');
+        $print = Penebangan::all();
+        $pdf = PDF::loadview('penebangans.printpdf', ['penebangan' => $print])->setPaper('a4', 'landscape');
+        return $pdf->stream('penebangantest.pdf');
     }
 }

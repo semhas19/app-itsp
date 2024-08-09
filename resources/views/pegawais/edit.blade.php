@@ -1,6 +1,6 @@
 @extends('layouts.content')
 
-@section('title', 'Edit Data pegawai')
+@section('title', 'Edit Data Pegawai')
 
 @section('content')
 <div class="card">
@@ -42,7 +42,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Password Baru</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="....">{{ old('password') }}</textarea>
                         @error('password')
                             <div class="alert alert-danger">

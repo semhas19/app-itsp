@@ -1,12 +1,12 @@
 @extends('layouts.content')
 
-@section('title', 'Tambah Data Pohon')
+@section('title', 'Tambah Data Penebangan')
 
 @section('content')
 
     <div class="card my-3">
         <div class="card-body">
-            <form action="{{ route('pohons.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('penebangans.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12">
@@ -71,10 +71,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="tgl_tanam">Tanggal Penanaman</label>
-                            <input type="date" class="form-control" name="tgl_tanam" id="tgl_tanam"
-                                value="{{ old('tgl_tanam') }}" placeholder="....">
-                            @error('tgl_tanam')
+                            <label for="tgl_tebang">Tanggal Penebangan</label>
+                            <input type="date" class="form-control" name="tgl_tebang" id="tgl_tebang"
+                                value="{{ old('tgl_tebang') }}" placeholder="....">
+                            @error('tgl_tebang')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>

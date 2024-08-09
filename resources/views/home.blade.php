@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <i class="fas fa-thumbs-up fa-2x text-warning"></i>
+                    <i class="fas fa-exclamation-triangle fa-2x text-warning"></i>
                 </div>
                 </div>
             </div>

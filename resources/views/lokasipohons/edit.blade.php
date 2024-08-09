@@ -10,7 +10,7 @@
             @csrf
             @method('PUT')
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group">
                         <label for="jalur_pohon">Jalur Pohon</label>
                         <input type="text" class="form-control" name="jalur_pohon" id="jalur_pohon" value="{{ $lokasipohon->jalur_pohon }}" placeholder="....">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group">
                         <label for="plot_pohon">Plot Pohon</label>
                         <input type="text" class="form-control" name="plot_pohon" id="plot_pohon" value="{{ $lokasipohon->plot_pohon }}" placeholder="....">
@@ -43,13 +43,3 @@
     </div>
 </div>
 @endsection
-
-                        {{-- <div class="form-group">
-                            <label for="koordinat">Koordinat</label>
-                            <input type="text" class="form-control" name="koordinat" id="koordinat" value="{{ $lokasipohon->koordinat }}" placeholder="Masukkan Koordinat Pohon">
-                            @error('jalur_pohon')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}

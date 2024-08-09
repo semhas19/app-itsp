@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pohons', function (Blueprint $table) {
+        Schema::create('penebangans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lokal');
             $table->string('nama_ilmiah');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('keliling_pohon');
             $table->integer('diameter_pohon');
             $table->float('volume_pohon', 20, 2);
-            $table->date('tgl_tanam');
+            $table->date('tgl_tebang');
             $table->enum('kondisi', ['1', '2', '3']);
             $table->text('note')->nullable();
             $table->json('data')->nullable();
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_pohons');
+        Schema::dropIfExists('penebangans');
     }
 };

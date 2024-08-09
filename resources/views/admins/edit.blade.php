@@ -42,25 +42,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Password Admin</label>
+                        <label for="password">Password Baru</label>
                         <input type="password" class="form-control" name="password" id="password"
-                            value="{{ old('password', $admin->password) }}" placeholder="....">
+                            value="" placeholder="....">
                         @error('password')
                             <div class="alert alert-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="password_confirmation">Konfirmasi Password Admin</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"
-                            value="{{ old('password', $admin->password) }}" placeholder="....">
-                        @error('password')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div> --}}
                 </div>
             </div>
             <button type="submit" class="btn btn-warning">Edit</button>

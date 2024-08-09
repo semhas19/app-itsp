@@ -1,6 +1,6 @@
 @extends('layouts.content')
 
-@section('title', 'Detail pegawai')
+@section('title', 'Detail Pegawai')
 
 @section('content')
 <style>

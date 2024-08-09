@@ -9,7 +9,7 @@
             <form action="{{ route('jenispohons.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-6">                        
+                    <div class="col-12">                        
                         <div class="form-group">
                             <label for="kategori_pohon">Kategori Pohon</label>
                             <select class="form-control" name="kategori_pohon_id">

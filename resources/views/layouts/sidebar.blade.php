@@ -35,13 +35,12 @@
                 <a class="collapse-item" href="{{ route('kategoripohons.index') }}">
                     Kategori Pohon
                 </a>
-                <a class="collapse-item" href="{{ route('lokasipohons.index') }}">
-                    Lokasi Pohon
-                </a>
                 <a class="collapse-item" href="{{ route('jenispohons.index') }}">
                     Jenis Pohon
                 </a>
-
+                <a class="collapse-item" href="{{ route('lokasipohons.index') }}">
+                    Lokasi Pohon
+                </a>
                 @if (auth()->user()->role === 'superadmin')
                     <a class="collapse-item" href="{{ route('admins.index') }}">
                         Admin
@@ -57,9 +56,21 @@
         </div>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('semais.index') }}">
+            <i class="fas fa-seedling"></i>
+            <span>Data Semai</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('pohons.index') }}">
             <i class="fas fa-fw fa-book"></i>
             <span>Data Pohon</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('penebangans.index') }}">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Data Penebangan</span>
         </a>
     </li>
     <li class="nav-item">

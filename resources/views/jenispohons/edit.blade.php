@@ -10,7 +10,7 @@
             @csrf
             @method('PUT')
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group">
                         <label for="kategori_pohon_id">Kategori Pohon</label>
                         <select class="form-control" name="kategori_pohon_id">
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="nama">Nama Pohon</label>
                         <input type="text" class="form-control" name="nama" id="nama"
-                            value="{{ old('nama', $jenispohon->nama) }}" placeholder="Masukkan Nama Baru">
+                            value="{{ old('nama', $jenispohon->nama) }}" placeholder="....">
                         @error('nama')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Catatan">{{ old('deskripsi') }}</textarea>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="....">{{ old('deskripsi') }}</textarea>
                         @error('deskripsi')
                             <div class="alert alert-danger">
                                 {{ $message }}

@@ -4,7 +4,7 @@
 <head>
 
     <head>
-        <title>Daftar Pohon</title>
+        <title>Data Penebangan</title>
         <style>
             table {
                 width: 100%;
@@ -77,7 +77,7 @@
         }
     </style>
     <center>
-        <h5>Laporan Data Pohon</h4>
+        <h5>Laporan Data Penebangan</h4>
     </center>
 
     <table class='table table-bordered'>
@@ -87,18 +87,18 @@
                 <th>Nama Lokal</th>
                 <th>Nama Ilmiah</th>
                 <th>Kode Pohon</th>
-                <th>Tanggal Tanam</th>
+                <th>Tanggal Penebangan</th>
                 <th>Catatan</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($pohon as $key => $value)
+            @foreach ($penebangan as $key => $value)
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $value->nama_lokal }}</td>
                     <td>{{ $value->nama_ilmiah }}</td>
                     <td>{{ $value->kode_pohon }}</td>
-                    <td>{{ $value->formatted_tgl_tanam }}</td>
+                    <td>{{ $value->formatted_tgl_tebang }}</td>
                     <td>{{ $value->note }}</td>
                 </tr>
             @endforeach

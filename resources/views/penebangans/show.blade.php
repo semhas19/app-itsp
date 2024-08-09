@@ -1,6 +1,6 @@
 @extends('layouts.content')
 
-@section('title', 'Detail Data Pohon')
+@section('title', 'Detail Data Penebangan')
 
 @section('content')
 <style>
@@ -21,7 +21,7 @@
     }
 </style>
 
-<a href="{{ route('pohons.index') }}" class="btn btn-icon-split btn-secondary btn-sm my-3">
+<a href="{{ route('penebangans.index') }}" class="btn btn-icon-split btn-secondary btn-sm my-3">
     <span class="icon text-white-50">
         <i class="fas fa-arrow-left"></i>
     </span>
@@ -35,55 +35,55 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>Nama Lokal</th>
-                        <td>{{ $pohon->nama_lokal }}</td>
+                        <td>{{ $penebangan->nama_lokal }}</td>
                     </tr>
                     <tr>
                         <th>Nama Ilmiah</th>
-                        <td><i>{{ $pohon->nama_ilmiah }}</i></td>
+                        <td><i>{{ $penebangan->nama_ilmiah }}</i></td>
                     </tr>
                     <tr>
                         <th>Kode Pohon</th>
-                        <td>{{ $pohon->kode_pohon }}</td>
+                        <td>{{ $penebangan->kode_pohon }}</td>
                     </tr>
                     <tr>
                         <th>Tinggi Pohon</th>
-                        <td>{{ number_format($pohon->tinggi_pohon) }} (m)</td>
+                        <td>{{ number_format($penebangan->tinggi_pohon) }} (m)</td>
                     </tr>
                     <tr>
                         <th>Keliling Pohon</th>
-                        <td>{{ number_format($pohon->keliling_pohon) }} (cm)</td>
+                        <td>{{ number_format($penebangan->keliling_pohon) }} (cm)</td>
                     </tr>
                     <tr>
                         <th>Diameter Pohon</th>
-                        <td>{{ number_format($pohon->diameter_pohon) }} (cm)</td>
+                        <td>{{ number_format($penebangan->diameter_pohon) }} (cm)</td>
                     </tr>
                     <tr>
                         <th>Volume Pohon</th>
-                        <td>{{ number_format($pohon->volume_pohon, 2) }} (cm)</td>
+                        <td>{{ number_format($penebangan->volume_pohon, 2) }} (cm)</td>
                     </tr>
                 </table>
             </div>
             <div class="col-md-6">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Tanggal Tanam</th>
-                        <td>{{ $pohon->formatted_tgl_tanam }}</td>
+                        <th>Tanggal Penebangan</th>
+                        <td>{{ $penebangan->formatted_tgl_tebang }}</td>
                     </tr>
                     <tr>
                         <th>Kondisi</th>
                         <td>
-                            {{ $pohon->kondisi == '1' ? 'Baik' : ($pohon->kondisi == '2' ? 'Rusak Ringan' : 'Rusak Berat') }}
+                            {{ $penebangan->kondisi == '1' ? 'Baik' : ($penebangan->kondisi == '2' ? 'Rusak Ringan' : 'Rusak Berat') }}
                         </td>
                     </tr>
                     <tr>
                         <th>Catatan</th>
-                        <td>{{ $pohon->note }}</td>
+                        <td>{{ $penebangan->note }}</td>
                     </tr>
                     {{-- <tr>
                         <th>Gambar</th>
                         <td>
-                            @if ($pohon->gambar)
-                                <a class="btn btn-icon-split btn-primary" data-toggle="modal" data-target="#myModal" data-image="{{ asset('images/' . $pohon->gambar) }}">
+                            @if ($penebangan->gambar)
+                                <a class="btn btn-icon-split btn-primary" data-toggle="modal" data-target="#myModal" data-image="{{ asset('images/' . $penebangan->gambar) }}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-eye"></i>
                                     </span>
@@ -96,15 +96,15 @@
                     </tr> --}}
                     <tr>
                         <th>Jalur Pohon</th>
-                        <td>{{ $pohon->lokasi_pohon->jalur_pohon }}</td>
+                        <td>{{ $penebangan->lokasi_pohon->jalur_pohon }}</td>
                     </tr>
                     <tr>
                         <th>Plot Pohon</th>
-                        <td>{{ $pohon->lokasi_pohon->plot_pohon }}</td>
+                        <td>{{ $penebangan->lokasi_pohon->plot_pohon }}</td>
                     </tr>
                     <tr>
                         <th>Jenis Pohon</th>
-                        <td>{{ $pohon->jenis_pohon->nama }}</td>
+                        <td>{{ $penebangan->jenis_pohon->nama }}</td>
                     </tr>
                 </table>
             </div>
@@ -116,13 +116,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Gambar {{ $pohon->nama_lokal }}</h5>
+                <h5 class="modal-title">Gambar {{ $penebangan->nama_lokal }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img src="{{ asset('images/' . $pohon->gambar) }}" alt="Gambar Pohon" class="img-fluid">
+                <img src="{{ asset('images/' . $penebangan->gambar) }}" alt="Gambar Pohon" class="img-fluid">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

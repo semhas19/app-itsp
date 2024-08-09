@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -39,8 +40,9 @@ class AdminController extends Controller
             'name'     => 'required',
             'email'    => 'required',
             'username' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required',
         ]);
+        $validated['password'] = Hash::make($validated['password']);
         $validated['role'] = 'admin';
 
         DB::transaction(function () use ($validated) {
@@ -51,7 +53,6 @@ class AdminController extends Controller
 
 
         return redirect()->route('admins.index');
-
     }
 
     /**

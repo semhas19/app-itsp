@@ -50,7 +50,5 @@ class HomeController extends Controller
             ->setXAxis(['Baik', 'Rusak Ringan', 'Rusak Berat']);
 
         return view('home', compact('pohon', 'tahuns', 'baiks', 'rusakringans', 'rusakberats', 'totals'));
-
-        
     }
 }

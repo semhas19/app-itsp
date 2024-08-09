@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="tgl_kegiatan">Tanggal Kegiatan</label>
                             <input type="date" class="form-control" name="tgl_kegiatan" id="tgl_kegiatan"
-                                value="{{ $pemeliharaan->tgl_kegiatan }}" placeholder="Masukkan Jalur Pohon">
+                                value="{{ $pemeliharaan->tgl_kegiatan }}" placeholder="....">
                             @error('nama')
                                 <div class="alert alert-danger">
                                     {{ $message }}
@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label for="kegiatan">Kegiatan</label>
                             <input type="text" class="form-control" name="kegiatan" id="kegiatan"
-                                value="{{ $pemeliharaan->kegiatan }}" placeholder="Masukkan Koordinat Pohon">
+                                value="{{ $pemeliharaan->kegiatan }}" placeholder="....">
                             @error('nama')
                                 <div class="alert alert-danger">
                                     {{ $message }}
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="petugas">Petugas</label>
                             <input type="text" class="form-control" name="petugas" id="petugas"
-                                value="{{ $pemeliharaan->petugas }}" placeholder="Masukkan Plot Pohon">
+                                value="{{ $pemeliharaan->petugas }}" placeholder="....">
                             @error('petugas')
                                 <div class="alert alert-danger">
                                     {{ $message }}
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="petugas">Petugas</label>
                             <input type="text" class="form-control" name="petugas" id="petugas"
-                                value="{{ $pemeliharaan->petugas }}" placeholder="Masukkan Plot Pohon">
+                                value="{{ $pemeliharaan->petugas }}" placeholder="....">
                             @error('petugas')
                                 <div class="alert alert-danger">
                                     {{ $message }}

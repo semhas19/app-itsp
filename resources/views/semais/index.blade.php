@@ -1,17 +1,17 @@
 @extends('layouts.content')
 
-@section('title', 'Data Pemeliharaan Pohon')
+@section('title', 'Data Semai Pohon')
 
 @section('content')
     <div class="d-flex mb-3">
-        <a href="{{ route('pemeliharaans.create') }}" class="btn btn-success btn-icon-split btn-sm mr-2">
+        <a href="{{ route('semais.create') }}" class="btn btn-success btn-icon-split btn-sm mr-2">
             <span class="icon text-white-50">
                 <i class="fas fa-plus" style="color: white"></i>
             </span>
             <span class="text">Tambah</span>
         </a>
 
-        <a href="{{ route('pemeliharaan-print-pdf') }}" class="btn btn-danger btn-icon-split btn-sm" target="_blank">
+        <a href="{{ route('semai-print-pdf') }}" class="btn btn-danger btn-icon-split btn-sm" target="_blank">
             <span class="icon text-white-50">
                 <i class="fas fa-file-pdf" style="color: white"></i>
             </span>
@@ -24,30 +24,32 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="text-center">Tanggal Kegiatan</th>
-                        <th class="text-center">Kegiatan</th>
-                        <th class="text-center">Pegawai</th>
-                        <th class="text-center">Data Pohon</th>
+                        <th class="text-center">Kategori Pohon</th>
+                        <th class="text-center">Nama Lokal</th>
+                        <th class="text-center">Nama Ilmiah</th>
+                        <th class="text-center">Tanggal Tanam</th>
+                        <th class="text-center">Kondisi</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pemeliharaans as $key => $value)
+                    @foreach ($semais as $key => $value)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $value->formatted_tgl_kegiatan }}</td>
-                            <td>{{ $value->kegiatan }}</td>
-                            <td>{{ $value->petugas }}</td>
-                            <td>{{ $value->pohon->nama_lokal }}</td>
+                            <td>{{ $value->kategori_pohon->nama }}</td>
+                            <td>{{ $value->nama_lokal }}</td>
+                            <td>{{ $value->nama_ilmiah }}</td>
+                            <td>{{ $value->tgl_tanam }}</td>
+                            <td>{{ $value->kondisi }}</td>
                             <td>
-                                <a href="{{ route('pemeliharaans.show', $value->id) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('semais.show', $value->id) }}" class="btn btn-info btn-sm">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('pemeliharaans.edit', $value->id) }}" class="btn btn-warning btn-sm">
+                                <a href="{{ route('semais.edit', $value->id) }}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit" style="color: white"></i>
                                 </a>
                                 <form id="delete-form-{{ $value->id }}"
-                                    action="{{ route('pemeliharaans.destroy', $value->id) }}" method="POST"
+                                    action="{{ route('semais.destroy', $value->id) }}" method="POST"
                                     class="d-inline">
                                     @method('delete')
                                     @csrf

@@ -31,10 +31,6 @@
             <th>Plot Pohon</th>
             <td>{{ $lokasipohon->plot_pohon }}</td>
         </tr>
-        <tr>
-            <th>Koordinat</th>
-            <td>{{ $lokasipohon->koordinat }}</td>
-        </tr>
     </table>
 </div>
 <a href="{{ route('lokasipohons.index') }}" class="btn btn-secondary btn-sm">

@@ -4,7 +4,7 @@
 <head>
 
     <head>
-        <title>Daftar Pohon</title>
+        <title>Daftar Semai Pohon</title>
         <style>
             table {
                 width: 100%;
@@ -31,12 +31,6 @@
 
             .text-center {
                 text-align: center;
-            }
-
-            img {
-                width: 100px;
-                /* Atur ukuran gambar sesuai kebutuhan */
-                height: auto;
             }
 
             .bg-success {
@@ -77,7 +71,7 @@
         }
     </style>
     <center>
-        <h5>Laporan Data Pohon</h4>
+        <h5>Laporan Data Semai Pohon</h4>
     </center>
 
     <table class='table table-bordered'>
@@ -92,7 +86,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pohon as $key => $value)
+            @foreach ($semai as $key => $value)
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $value->nama_lokal }}</td>

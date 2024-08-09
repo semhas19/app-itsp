@@ -1,6 +1,6 @@
 @extends('layouts.content')
 
-@section('title', 'Tambah Lokasi Pohon')
+@section('title', 'Tambah Kategori Pohon')
 
 @section('content')
 
@@ -9,10 +9,10 @@
             <form action="{{ route('kategoripohons.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="form-group">
                             <label for="nama">Nama Kategori</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="{{ old('nama') }}" placeholder="....">
+                            <input type="text"   class="form-control" name="nama" id="nama" value="{{ old('nama') }}" placeholder="....">
                             @error('nama')
                                 <div class="alert alert-danger">
                                     {{ $message }}
