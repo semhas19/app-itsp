@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('penebangans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lokal');
-            $table->string('nama_ilmiah');
             $table->string('kode_pohon');
             $table->integer('tinggi_pohon');
             $table->integer('keliling_pohon');
@@ -24,7 +22,6 @@ return new class extends Migration
             $table->enum('kondisi', ['1', '2', '3']);
             $table->text('note')->nullable();
             $table->json('data')->nullable();
-            // $table->string('gambar')->nullable();
             $table->foreignId('lokasi_pohon_id')->references('id')->on('lokasi_pohons')->onDelete('cascade');
             $table->foreignId('jenis_pohon_id')->references('id')->on('jenis_pohons')->onDelete('cascade');
             $table->timestamps();

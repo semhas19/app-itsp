@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\KategoriPohon;
 use Illuminate\Http\Request;
+use App\Models\LokasiPohon;
+use App\Models\JenisPohon;
 use App\Models\Semai;
 
 class SemaiController extends Controller
@@ -26,8 +28,11 @@ class SemaiController extends Controller
     public function create()
     {
         $kategoripohons = KategoriPohon::all();
-        return view('semais.create', compact('kategoripohons'));
+        $jenispohons = JenisPohon::all();
+        $lokasipohons = LokasiPohon::all();
+        return view('semais.create', compact('kategoripohons', 'jenispohons', 'lokasipohons'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -37,16 +42,22 @@ class SemaiController extends Controller
         // return $request->all();
 
         $validated = $request->validate([
-            'nama_lokal'        => 'required',
-            'nama_ilmiah'       => 'required',
             'kategori_pohon_id' => 'required',
+            'jenis_pohon_id' => 'required',
+            'lokasi_pohon_id' => 'required',
+            'tinggi_pohon'      => 'required',
             'tgl_tanam'         => 'required|date',
             'kondisi'           => 'required|in: 1,2,3',
             'note'              => 'nullable'
         ]);
 
         DB::transaction(function () use ($validated) {
-            Semai::create($validated);
+            $semai = Semai::create($validated);
+
+            $validated['data'] = json_encode($semai);
+            $semai->update([
+                'data' => $validated['data'],
+            ]);
         });
 
         Alert::success('Berhasil', 'Data Telah Ditambahkan.');
@@ -68,8 +79,8 @@ class SemaiController extends Controller
     public function edit(Semai $semai)
     {
         $kategoripohons = KategoriPohon::all();
-
-        return view('semais.edit', compact('semai', 'kategoripohons'));
+        $jenispohons = JenisPohon::all();
+        return view('semais.edit', compact('semai', 'kategoripohons', 'jenispohons'));
     }
 
     /**
@@ -81,6 +92,7 @@ class SemaiController extends Controller
             'nama_lokal'        => 'required',
             'nama_ilmiah'       => 'required',
             'kategori_pohon_id' => 'required',
+            'tinggi_pohon'      => 'required',
             'tgl_tanam'         => 'required|date',
             'kondisi'           => 'required|in: 1,2,3',
             'note'              => 'nullable'

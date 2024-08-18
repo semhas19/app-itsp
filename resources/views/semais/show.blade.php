@@ -15,14 +15,14 @@
             <th>Kategori</th>
             <td>{{ $semai->kategori_pohon->nama }}</td>
         </tr>
-        <tr>
+        {{-- <tr>
             <th>Nama Lokal</th>
             <td>{{ $semai->nama_lokal }}</td>
         </tr>
         <tr>
             <th>Nama Ilmiah</th>
             <td>{{ $semai->nama_ilmiah }}</td>
-        </tr>
+        </tr> --}}
         <tr>
             <th>Tanggal Tanam</th>
             <td>{{ $semai->tgl_tanam }}</td>

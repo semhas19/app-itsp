@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('jenis_pohons', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_lokal');
+            $table->string('nama_ilmiah');
             $table->text('deskripsi')->nullable();
             $table->foreignId('kategori_pohon_id')->references('id')->on('kategori_pohons')->onDelete('cascade');
             $table->timestamps();

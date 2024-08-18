@@ -13,8 +13,10 @@ class CreateLokasiPohonsTable extends Migration
     {
         Schema::create('lokasi_pohons', function (Blueprint $table) {
             $table->id();
+            // $table->string('blok');
             $table->string('jalur_pohon');
             $table->string('plot_pohon');
+            $table->string('koordinat');
             $table->timestamps();
         });
     }

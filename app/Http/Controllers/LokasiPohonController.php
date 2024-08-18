@@ -35,7 +35,8 @@ class LokasiPohonController extends Controller
     {
         $validated = $request->validate([
             'jalur_pohon' => 'required',
-            'plot_pohon'  => 'required'
+            'plot_pohon'  => 'required',
+            'koordinat'   => 'required',
         ]);
 
         DB::transaction(function () use ($validated) {
@@ -73,7 +74,8 @@ class LokasiPohonController extends Controller
 
         $validated = $request->validate([
             'jalur_pohon' => 'required',
-            'plot_pohon'  => 'required'
+            'plot_pohon'  => 'required',
+            'koordinat'   => 'required',
         ]);
 
         DB::transaction(function () use ($validated, $lokasipohon) {

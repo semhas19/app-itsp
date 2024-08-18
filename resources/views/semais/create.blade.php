@@ -24,20 +24,38 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama_lokal">Nama Lokal</label>
-                            <input type="text" class="form-control" name="nama_lokal" id="nama_lokal"
-                                value="{{ old('nama_lokal') }}" placeholder="....">
-                            @error('nama_lokal')
+                            <label for="jenis_pohon">Jenis Pohon</label>
+                            <select class="form-control" name="jenis_pohon_id">
+                                <option selected="true" disabled="disabled">Pilih Jenis Pohon</option>
+                                @foreach ($jenispohons as $jenispohon)
+                                    <option value="{{ $jenispohon->id }}">{{ $jenispohon->nama_lokal }}</option>
+                                @endforeach
+                            </select>
+                            @error('jenis_pohon_id')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama_ilmiah">Nama Ilmiah</label>
-                            <input type="text" class="form-control" name="nama_ilmiah" id="nama_ilmiah"
-                                value="{{ old('nama_ilmiah') }}" placeholder="....">
-                            @error('nama_ilmiah')
+                            <label for="lokasi_pohon">Jalur Pohon</label>
+                            <select class="form-control" name="lokasi_pohon_id">
+                                <option selected="true" disabled="disabled">Pilih Jalur Pohon</option>
+                                @foreach ($lokasipohons as $lokasipohon)
+                                    <option value="{{ $lokasipohon->id }}">{{ $lokasipohon->jalur_pohon }}</option>
+                                @endforeach
+                            </select>
+                            @error('lokasi_pohon_id')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="kode_pohon">Kode Pohon</label>
+                            <input type="text" class="form-control" name="kode_pohon" id="kode_pohon"
+                                value="{{ old('kode_pohon') }}" placeholder="....">
+                            @error('kode_pohon')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>

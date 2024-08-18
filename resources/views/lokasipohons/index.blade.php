@@ -15,8 +15,10 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
+                        {{-- <th class="text-center">Blok</th> --}}
                         <th class="text-center">Jalur Pohon</th>
                         <th class="text-center">Plot Pohon</th>
+                        <th class="text-center">Koordinat</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -24,8 +26,10 @@
                     @foreach ($lokasipohons as $key => $value)
                         <tr>
                             <td>{{ $key + 1 }}</td>
+                            {{-- <td>{{ $value->blok }}</td> --}}
                             <td>{{ $value->jalur_pohon }}</td>
                             <td>{{ $value->plot_pohon }}</td>
+                            <td>{{ $value->koordinat }}</td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center">
                                     <a href="{{ route('lokasipohons.show', $value->id) }}" class="btn btn-info btn-sm mx-1">

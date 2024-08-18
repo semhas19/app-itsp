@@ -13,6 +13,11 @@ class KategoriPohon extends Model
     
     public function jenis_pohon()
     {
-        return $this->hasMany(JenisPohon::class, 'jenis_pohon_id');
+        return $this->hasMany(JenisPohon::class, 'kategori_pohon_id');
+    }
+    
+    public function data_pohon()
+    {
+        return $this->hasMany(Pohon::class, 'kategori_pohon_id');
     }
 }

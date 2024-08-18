@@ -11,20 +11,44 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="nama_lokal">Nama Lokal</label>
-                            <input type="text" class="form-control" name="nama_lokal" id="nama_lokal"
-                                value="{{ old('nama_lokal') }}" placeholder="....">
-                            @error('nama_lokal')
+                            <label for="kategori_pohon">Kategori Pohon</label>
+                            <select class="form-control" name="kategori_pohon_id">
+                                <option selected="true" disabled="disabled">Pilih Kategori Pohon</option>
+                                @foreach ($kategori_pohons as $kategori_pohon)
+                                    <option value="{{ $kategori_pohon->id }}">{{ $kategori_pohon->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('jenis_pohon_id')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama_ilmiah">Nama Ilmiah</label>
-                            <input type="text" class="form-control" name="nama_ilmiah" id="nama_ilmiah"
-                                value="{{ old('nama_ilmiah') }}" placeholder="....">
-                            @error('nama_ilmiah')
+                            <label for="jenis_pohon">Jenis Pohon</label>
+                            <select class="form-control" name="jenis_pohon_id">
+                                <option selected="true" disabled="disabled">Pilih Jenis Pohon</option>
+                                @foreach ($jenis_pohons as $jenis_pohon)
+                                    <option value="{{ $jenis_pohon->id }}">{{ $jenis_pohon->nama_lokal }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('jenis_pohon_id')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="lokasi_pohon">Jalur Pohon</label>
+                            <select class="form-control" name="lokasi_pohon_id">
+                                <option selected="true" disabled="disabled">Pilih Jalur Pohon</option>
+                                @foreach ($lokasi_pohons as $lokasi_pohon)
+                                    <option value="{{ $lokasi_pohon->id }}">{{ $lokasi_pohon->jalur_pohon }}</option>
+                                @endforeach
+                            </select>
+                            @error('lokasi_pohon_id')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
@@ -41,40 +65,70 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="tinggi_pohon">Tinggi Pohon</label>
-                            <input type="number" class="form-control" name="tinggi_pohon" id="tinggi_pohon"
-                                value="{{ old('tinggi_pohon') }}" placeholder="....">
-                            @error('tinggi_pohon')
+                            <label for="diameter">Diameter</label>
+                            <input type="number" class="form-control" name="diameter" id="diameter"
+                                value="{{ old('diameter') }}" placeholder="...." step="0.01">
+                            @error('diameter')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="diameter_pohon">Diameter Pohon</label>
-                            <input type="number" class="form-control" name="diameter_pohon" id="diameter_pohon"
-                                value="{{ old('diameter_pohon') }}" placeholder="....">
-                            @error('diameter_pohon')
+                            <label for="h_top">H Top</label>
+                            <input type="number" class="form-control" name="h_top" id="h_top"
+                                value="{{ old('h_top') }}" placeholder="....">
+                            @error('h_top')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="keliling_pohon">Keliling Pohon</label>
-                            <input type="number" class="form-control" name="keliling_pohon" id="keliling_pohon"
-                                value="{{ old('keliling_pohon') }}" placeholder="....">
-                            @error('keliling_pohon')
+                            <label for="h_pole">H Pole</label>
+                            <input type="number" class="form-control" name="h_pole" id="h_pole"
+                                value="{{ old('h_pole') }}" placeholder="....">
+                            @error('h_pole')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="tgl_tanam">Tanggal Penanaman</label>
+                            <label for="h_base">H Base</label>
+                            <input type="number" class="form-control" name="h_base" id="h_base"
+                                value="{{ old('h_base') }}" placeholder="....">
+                            @error('h_base')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                                                                       
+                        <div class="form-group">
+                            <label for="tinggi_jalon">Tinggi Jalon/Galah</label>
+                            <input type="number" class="form-control" name="tinggi_jalon" id="tinggi_jalon"
+                                value="{{ old('tinggi_jalon') }}" placeholder="....">
+                            @error('tinggi_jalon')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                                                                       
+                        <div class="form-group">
+                            <label for="tgl_tanam">Tanggal Tanam</label>
                             <input type="date" class="form-control" name="tgl_tanam" id="tgl_tanam"
                                 value="{{ old('tgl_tanam') }}" placeholder="....">
                             @error('tgl_tanam')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="tgl_pengukuran">Tanggal Pengukuran</label>
+                            <input type="date" class="form-control" name="tgl_pengukuran" id="tgl_pengukuran"
+                                value="{{ old('tgl_pengukuran') }}" placeholder="....">
+                            @error('tgl_pengukuran')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>
@@ -98,44 +152,6 @@
                             <label for="note">Catatan</label>
                             <textarea class="form-control" name="note" id="note" placeholder="Catatan">{{ old('note') }}</textarea>
                             @error('note')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        {{-- <div class="form-group">
-                            <label for="gambar">Gambar</label>
-                            <input type="file" class="form-control" name="gambar" id="gambar">
-                            @error('gambar')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}
-                        <div class="form-group">
-                            <label for="lokasi_pohon">Jalur Pohon</label>
-                            <select class="form-control" name="lokasi_pohon_id">
-                                <option selected="true" disabled="disabled">Pilih Jalur Pohon</option>
-                                @foreach ($lokasi_pohons as $lokasi_pohon)
-                                    <option value="{{ $lokasi_pohon->id }}">{{ $lokasi_pohon->jalur_pohon }}</option>
-                                @endforeach
-                            </select>
-                            @error('lokasi_pohon_id')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="jenis_pohon">Jenis Pohon</label>
-                            <select class="form-control" name="jenis_pohon_id">
-                                <option selected="true" disabled="disabled">Pilih Jenis Pohon</option>
-                                @foreach ($jenis_pohons as $jenis_pohon)
-                                    <option value="{{ $jenis_pohon->id }}">{{ $jenis_pohon->kategori_pohon->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('jenis_pohon_id')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>

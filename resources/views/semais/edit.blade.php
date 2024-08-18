@@ -21,7 +21,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="nama_lokal">Nama Lokal</label>
                             <input type="text" class="form-control" name="nama_lokal" id="nama_lokal"
                                 value="{{ old('nama_lokal', $semai->nama_lokal) }}" placeholder="....">
@@ -40,7 +40,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="tgl_tanam">Tanggal Tanam</label>
                             <input type="date" id="tgl_tanam" class="form-control" name="tgl_tanam" value="{{ old('tgl_tanam', $pohon->tgl_tanam) }}">

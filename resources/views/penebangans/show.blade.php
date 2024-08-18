@@ -33,14 +33,14 @@
         <div class="row">
             <div class="col-md-6">
                 <table class="table table-bordered">
-                    <tr>
+                    {{-- <tr>
                         <th>Nama Lokal</th>
                         <td>{{ $penebangan->nama_lokal }}</td>
                     </tr>
                     <tr>
                         <th>Nama Ilmiah</th>
                         <td><i>{{ $penebangan->nama_ilmiah }}</i></td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <th>Kode Pohon</th>
                         <td>{{ $penebangan->kode_pohon }}</td>
@@ -79,21 +79,6 @@
                         <th>Catatan</th>
                         <td>{{ $penebangan->note }}</td>
                     </tr>
-                    {{-- <tr>
-                        <th>Gambar</th>
-                        <td>
-                            @if ($penebangan->gambar)
-                                <a class="btn btn-icon-split btn-primary" data-toggle="modal" data-target="#myModal" data-image="{{ asset('images/' . $penebangan->gambar) }}">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-eye"></i>
-                                    </span>
-                                    <span class="text text-white">Lihat</span>
-                                </a>
-                            @else
-                                <p>Tidak ada gambar</p>
-                            @endif
-                        </td>
-                    </tr> --}}
                     <tr>
                         <th>Jalur Pohon</th>
                         <td>{{ $penebangan->lokasi_pohon->jalur_pohon }}</td>

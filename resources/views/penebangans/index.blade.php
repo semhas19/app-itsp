@@ -26,8 +26,8 @@
                     <tr>
                         <th class="text-center">No</th>
                         <th class="text-center">Kode Pohon</th>
-                        <th class="text-center">Nama Lokal</th>
-                        <th class="text-center">Nama Ilmiah</th>
+                        {{-- <th class="text-center">Nama Lokal</th>
+                        <th class="text-center">Nama Ilmiah</th> --}}
                         <th class="text-center">Tanggal Penebangan</th>
                         <th class="text-center">Kondisi Pohon</th>
                         <th class="text-center">Lokasi Pohon</th>
@@ -39,8 +39,8 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $value->kode_pohon }}</td>
-                            <td>{{ $value->nama_lokal }}</td>
-                            <td>{{ $value->nama_ilmiah }}</td>
+                            {{-- <td>{{ $value->nama_lokal }}</td>
+                            <td>{{ $value->nama_ilmiah }}</td> --}}
                             <td>{{ $value->formatted_tgl_tebang }}</td>
                             <td>
                                 {{ $value->kondisi == '1' ? 'Baik' : ($value->kondisi == '2' ? 'Rusak Ringan' : 'Rusak Berat') }}

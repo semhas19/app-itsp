@@ -15,4 +15,14 @@ class Semai extends Model
     {
         return $this->belongsTo(KategoriPohon::class, 'kategori_pohon_id');
     }
+
+    public function jenis_pohon()
+    {
+        return $this->belongsTo(JenisPohon::class, 'jenis_pohon_id');
+    }
+
+    public function lokasi_pohon()
+    {
+        return $this->belongsTo(LokasiPohon::class, 'lokasi_pohon_id');
+    }
 }

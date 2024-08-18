@@ -25,8 +25,8 @@
                     <tr>
                         <th class="text-center">No</th>
                         <th class="text-center">Kategori Pohon</th>
-                        <th class="text-center">Nama Lokal</th>
-                        <th class="text-center">Nama Ilmiah</th>
+                        {{-- <th class="text-center">Nama Lokal</th>
+                        <th class="text-center">Nama Ilmiah</th> --}}
                         <th class="text-center">Tanggal Tanam</th>
                         <th class="text-center">Kondisi</th>
                         <th class="text-center">Aksi</th>

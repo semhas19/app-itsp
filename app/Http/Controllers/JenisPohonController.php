@@ -33,8 +33,11 @@ class JenisPohonController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
+
         $validated = $request->validate([
-            'nama'              => 'required',
+            'nama_lokal'        => 'required',
+            'nama_ilmiah'       => 'required',
             'deskripsi'         => 'required',
             'kategori_pohon_id' => 'required'
         ]);
@@ -74,7 +77,8 @@ class JenisPohonController extends Controller
         // return  $request->all();
 
         $validated = $request->validate([
-            'nama'              => 'required',
+            'nama_lokal'        => 'required',
+            'nama_ilmiah'       => 'required',
             'deskripsi'         => 'required',
             'kategori_pohon_id' => 'required'
         ]);

@@ -20,4 +20,9 @@ class LokasiPohon extends Model
     {
         return $this->hasMany(Pohon::class, 'lokasi_pohon_id');
     }
+
+    public function semai()
+    {
+        return $this->hasMany(Semai::class, 'lokasi_pohon_id');
+    }
 }

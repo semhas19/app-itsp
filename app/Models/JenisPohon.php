@@ -15,4 +15,9 @@ class JenisPohon extends Model
     {
         return $this->belongsTo(KategoriPohon::class);
     }
+    
+    public function semai_pohon()
+    {
+        return $this->hasMany(Semai::class, 'jenis_pohon_id');
+    }
 }

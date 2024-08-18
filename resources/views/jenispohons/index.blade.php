@@ -16,7 +16,8 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="text-center">Nama Pohon</th>
+                        <th class="text-center">Nama Lokal</th>
+                        <th class="text-center">Nama Ilmiah</th>
                         <th class="text-center">Kategori Pohon</th>
                         <th class="text-center">Aksi</th>
                     </tr>
@@ -25,7 +26,8 @@
                     @foreach ($jenispohons as $key => $value)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $value->nama }}</td>
+                            <td>{{ $value->nama_lokal }}</td>
+                            <td><i>{{ $value->nama_ilmiah }}</i></td>
                             <td>{{ $value->kategori_pohon->nama }}</td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center">

@@ -13,20 +13,22 @@ return new class extends Migration
     {
         Schema::create('data_pohons', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lokal');
-            $table->string('nama_ilmiah');
-            $table->string('kode_pohon');
-            $table->integer('tinggi_pohon');
-            $table->integer('keliling_pohon');
-            $table->integer('diameter_pohon');
-            $table->float('volume_pohon', 20, 2);
+            $table->string('kode_pohon')->unique;
+            $table->decimal('volume_pohon', 20, 4);
+            $table->float('tinggi_pohon');
+            $table->integer('tinggi_jalon'); //tinggi alat yang digunakan (Jalon/Galah)
+            $table->float('diameter'); // diameter pohon
+            $table->integer('h_top'); // tajuk tertinggi pohon
+            $table->integer('h_pole'); // tinggi pohon tumbuh
+            $table->integer('h_base'); // pangkal pohon
             $table->date('tgl_tanam');
+            $table->date('tgl_pengukuran');
             $table->enum('kondisi', ['1', '2', '3']);
             $table->text('note')->nullable();
             $table->json('data')->nullable();
-            // $table->string('gambar')->nullable();
             $table->foreignId('lokasi_pohon_id')->references('id')->on('lokasi_pohons')->onDelete('cascade');
             $table->foreignId('jenis_pohon_id')->references('id')->on('jenis_pohons')->onDelete('cascade');
+            $table->foreignId('kategori_pohon_id')->references('id')->on('kategori_pohons')->onDelete('cascade');
             $table->timestamps();
         });
     }

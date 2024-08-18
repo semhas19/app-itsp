@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('tgl_kegiatan');
             $table->string('kegiatan');
-            $table->string('petugas');
+            $table->string('pegawai');
             $table->foreignId('data_pohon_id')->references('id')->on('data_pohons')->onDelete('cascade');
             $table->timestamps();
         });

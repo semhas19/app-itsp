@@ -26,10 +26,20 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nama Pohon</label>
-                        <input type="text" class="form-control" name="nama" id="nama"
-                            value="{{ old('nama', $jenispohon->nama) }}" placeholder="....">
-                        @error('nama')
+                        <label for="nama_lokal">Nama Lokal</label>
+                        <input type="text" class="form-control" name="nama_lokal" id="nama_lokal"
+                            value="{{ old('nama_lokal', $jenispohon->nama_lokal) }}" placeholder="....">
+                        @error('nama_lokal')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_ilmiah">Nama Ilmiah</label>
+                        <input type="text" class="form-control" name="nama_ilmiah" id="nama_ilmiah"
+                            value="{{ old('nama_ilmiah', $jenispohon->nama_ilmiah) }}" placeholder="....">
+                        @error('nama_ilmiah')
                             <div class="alert alert-danger">
                                 {{ $message }}
                             </div>

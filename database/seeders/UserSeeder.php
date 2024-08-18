@@ -31,11 +31,11 @@ class UserSeeder extends Seeder
                 'password'=> bcrypt('admin')
             ],
             [
-                'username'=>'petugas',
-                'name'=>'Petugas',
-                'email'=>'petugas@mail.com',
-                'role'=>'petugas',
-                'password'=> bcrypt('petugas')
+                'username'=>'pegawai',
+                'name'=>'Pegawai',
+                'email'=>'pegawai@mail.com',
+                'role'=>'pegawai',
+                'password'=> bcrypt('pegawai')
             ],
 
         ];
